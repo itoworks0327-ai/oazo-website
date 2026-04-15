@@ -1,0 +1,17 @@
+---
+const {
+  title = '一緒にものづくりを始めませんか',
+  text  = 'お見積り・ご相談は無料です。試作1点からお気軽にご連絡くださいませ。',
+} = Astro.props;
+---
+
+<section class="cta-band">
+  <div class="cta-band-inner">
+    <h2>{title}</h2>
+    <p>{text}</p>
+    <a href="/contact/" class="btn-primary">
+      お問い合わせはこちら
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>

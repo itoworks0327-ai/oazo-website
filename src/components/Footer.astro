@@ -1,0 +1,100 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-col">
+      <div class="footer-logo">oazo <span>合同会社</span></div>
+      <p class="footer-desc">ファッションで未来に継ぐ。大阪・大東市を拠点に、アパレル業界の試作・二次加工・卸売を支える総合パートナーです。</p>
+    </div>
+    <div class="footer-col">
+      <h5>Sitemap</h5>
+      <ul>
+        <li><a href="/about/">会社概要</a></li>
+        <li><a href="/services/">事業内容</a></li>
+        <li><a href="/strengths/">選ばれる理由</a></li>
+        <li><a href="/process/">ご依頼の流れ</a></li>
+        <li><a href="/faq/">よくあるご質問</a></li>
+        <li><a href="/contact/">お問い合わせ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <p class="footer-contact-line">〒574-0026</p>
+      <p class="footer-contact-line">大阪府大東市北条4-8-4</p>
+      <p class="footer-contact-line"><a href="mailto:oazo.tamura@gmail.com">oazo.tamura@gmail.com</a></p>
+      <p class="footer-contact-line credit">代表：田村 英次</p>
+    </div>
+  </div>
+  <div class="footer-copy">&copy; {year} oazo合同会社. All rights reserved.</div>
+</footer>
+
+<style>
+  footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.7);
+    padding: 48px 48px 28px;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 36px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-col h5 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .footer-logo {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+  .footer-logo span { color: rgba(255,255,255,0.8); font-weight: 400; font-size: 0.8rem; margin-left: 8px; }
+  .footer-desc {
+    font-size: 0.78rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.55);
+    max-width: 340px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 8px; }
+  .footer-col ul a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s;
+  }
+  .footer-col ul a:hover { color: var(--orange-lt); }
+  .footer-contact-line {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 6px;
+    line-height: 1.7;
+  }
+  .footer-contact-line a { color: var(--orange-lt); text-decoration: none; }
+  .footer-contact-line a:hover { text-decoration: underline; }
+  .footer-contact-line.credit { margin-top: 10px; opacity: 0.7; }
+  .footer-copy {
+    text-align: center;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 960px) {
+    .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  }
+  @media (max-width: 768px) {
+    footer { padding: 36px 20px 20px; }
+  }
+</style>

@@ -1,0 +1,95 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBand from '../components/CtaBand.astro';
+---
+
+<Base
+  current="services"
+  title="事業内容"
+  description="oazo合同会社の事業内容ページ。試作サンプル縫製・二次加工（刺繍・ハンドS/T・製品洗い）・アパレル卸売の三本柱でアパレル業界を支えます。"
+  breadcrumbs={[{ name: 'HOME', path: '/' }, { name: '事業内容', path: '/services/' }]}
+>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb"><a href="/">HOME</a> / SERVICES</div>
+      <h1>事業<span>内容</span></h1>
+      <p>アパレルブランドの「作りたい」を、三つの専門領域でしっかりと支えます。少ロットのサンプル1点から、本格的な二次加工まで柔軟に対応いたします。</p>
+    </div>
+  </header>
+
+  <section id="services">
+    <div class="section-inner">
+      <div class="service-grid">
+        <div class="service-card" id="sample">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M8 4h8M10 6h4v3h-4zM12 9v11M10 20h4"/><path d="M7 13c-1.5 1.5-1.5 4 0 5.5M17 13c1.5 1.5 1.5 4 0 5.5" stroke-dasharray="2 2"/></svg>
+          </div>
+          <h3>試作サンプル縫製</h3>
+          <div class="en">Prototype & Sample Sewing</div>
+          <p>ブランドの企画段階から試作・サンプル制作までを一貫対応。1点からの少量制作にも柔軟に応じ、デザインを素早く形にいたします。</p>
+          <ul>
+            <li>1点からのサンプル対応</li>
+            <li>パターン・仕様書からの精密縫製</li>
+            <li>短納期・修正対応</li>
+            <li>秘密保持を徹底</li>
+          </ul>
+        </div>
+        <div class="service-card" id="processing">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7 12c2-3 3-3 5 0s3 3 5 0"/><path d="M7 15c2-2 3-2 5 0s3 2 5 0" stroke-dasharray="2 2"/><circle cx="12" cy="8" r="1" fill="currentColor"/></svg>
+          </div>
+          <h3>二次加工</h3>
+          <div class="en">Secondary Processing</div>
+          <p>完成品に付加価値を与える二次加工を幅広く対応。刺繍・ハンドステッチ・製品洗いなど、ブランドの世界観を一歩引き上げます。</p>
+          <ul>
+            <li>刺繍（機械・ハンド）</li>
+            <li>ハンドS/T（ハンドステッチ）</li>
+            <li>製品洗い（各種ウォッシュ）</li>
+            <li>その他加工のご相談</li>
+          </ul>
+        </div>
+        <div class="service-card" id="wholesale">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3l-5 3v5h3v10h12V11h3V6l-5-3"/><path d="M8 3l4 3 4-3"/></svg>
+          </div>
+          <h3>アパレル卸売</h3>
+          <div class="en">Apparel Wholesale</div>
+          <p>小売店・EC事業者様向けに、ファッションアイテムを卸売でご提供。トレンドを押さえた商品を、柔軟なロットでお届けします。</p>
+          <ul>
+            <li>小売店・EC向け卸売</li>
+            <li>柔軟なロット対応</li>
+            <li>継続取引のご相談</li>
+            <li>仕入先の開拓支援</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand title="どのサービスもまずはご相談を" text="ロット数・納期・ご予算など、わかる範囲で結構です。お気軽にお問い合わせくださいませ。" />
+
+</Base>
+
+<style>
+  #services { background: var(--cream); position: relative; overflow: hidden; }
+  #services::before { content: ''; position: absolute; width: 400px; height: 400px; background: var(--green-lt); border-radius: 50%; top: -150px; right: -150px; opacity: 0.2; filter: blur(40px); }
+  .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; position: relative; z-index: 1; }
+  .service-card { background: var(--white); border-radius: 24px; padding: 40px 32px; box-shadow: var(--shadow); transition: transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; border: 1px solid transparent; scroll-margin-top: 100px; }
+  .service-card:target { border-color: var(--orange); box-shadow: var(--shadow-lg), 0 0 0 3px rgba(244,123,90,0.15); }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(to right, var(--green), var(--orange)); }
+  .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--border); }
+  .service-icon { width: 64px; height: 64px; background: linear-gradient(135deg, rgba(125,196,122,0.15), rgba(244,123,90,0.12)); border-radius: 18px; display: flex; align-items: center; justify-content: center; color: var(--green-dk); margin-bottom: 22px; transition: transform 0.3s; }
+  .service-card:hover .service-icon { transform: rotate(-5deg) scale(1.05); }
+  .service-icon svg { width: 30px; height: 30px; }
+  .service-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+  .service-card .en { font-family: 'Nunito', sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--orange); letter-spacing: 0.08em; margin-bottom: 16px; text-transform: uppercase; }
+  .service-card p { font-size: 0.85rem; color: var(--text-lt); line-height: 1.95; margin-bottom: 16px; }
+  .service-card ul { list-style: none; padding: 0; }
+  .service-card ul li { font-size: 0.82rem; color: var(--text); padding: 4px 0 4px 20px; position: relative; line-height: 1.7; }
+  .service-card ul li::before { content: ''; position: absolute; left: 4px; top: 11px; width: 8px; height: 8px; border-right: 2px solid var(--green-dk); border-bottom: 2px solid var(--green-dk); transform: rotate(-45deg); }
+
+  @media (max-width: 960px) {
+    .service-grid { grid-template-columns: 1fr; gap: 20px; }
+  }
+</style>

@@ -1,0 +1,123 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  current=""
+  title="ページが見つかりません"
+  description="お探しのページは見つかりませんでした。トップページよりお進みください。"
+>
+  <section id="not-found">
+    <div class="nf-bg">
+      <div class="nf-blob-1"></div>
+      <div class="nf-blob-2"></div>
+    </div>
+    <div class="nf-inner">
+      <div class="nf-num">404</div>
+      <h1>ページが<span>見つかりません</span></h1>
+      <p class="nf-lead">
+        お探しのページは移動または削除された可能性がございます。<br />
+        お手数をおかけいたしますが、下記よりお進みくださいませ。
+      </p>
+      <div class="nf-btns">
+        <a href="/" class="btn-primary">
+          トップページへ戻る
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/contact/" class="btn-secondary">お問い合わせ</a>
+      </div>
+      <nav class="nf-sitemap" aria-label="主要ページ">
+        <a href="/about/">会社概要</a>
+        <a href="/services/">事業内容</a>
+        <a href="/strengths/">選ばれる理由</a>
+        <a href="/process/">ご依頼の流れ</a>
+        <a href="/faq/">FAQ</a>
+      </nav>
+    </div>
+  </section>
+</Base>
+
+<style>
+  #not-found {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dk) 100%);
+  }
+  .nf-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+  .nf-blob-1 {
+    position: absolute;
+    width: 460px; height: 460px;
+    background: var(--green-lt);
+    border-radius: 60% 40% 55% 45% / 45% 58% 42% 55%;
+    top: -140px; right: -140px;
+    opacity: 0.28;
+  }
+  .nf-blob-2 {
+    position: absolute;
+    width: 320px; height: 320px;
+    background: var(--orange-lt);
+    border-radius: 50% 60% 40% 70% / 50% 40% 60% 50%;
+    bottom: -100px; left: -100px;
+    opacity: 0.22;
+  }
+  .nf-inner { position: relative; z-index: 1; max-width: 620px; }
+  .nf-num {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(5rem, 14vw, 8.5rem);
+    font-weight: 900;
+    color: var(--green-dk);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    opacity: 0.85;
+    margin-bottom: 12px;
+  }
+  #not-found h1 {
+    font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+  }
+  #not-found h1 span { color: var(--orange); }
+  .nf-lead {
+    font-size: 0.9rem;
+    color: var(--text-lt);
+    line-height: 1.95;
+    margin-bottom: 36px;
+  }
+  .nf-btns {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .nf-sitemap {
+    display: flex;
+    gap: 20px 28px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .nf-sitemap a {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--green-dk);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+  .nf-sitemap a:hover { color: var(--orange-dk); }
+
+  @media (max-width: 768px) {
+    #not-found { padding: 100px 20px 60px; }
+  }
+</style>

@@ -1,0 +1,221 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  current="contact"
+  title="お問い合わせ"
+  description="oazo合同会社へのお問い合わせフォーム。試作サンプル縫製・二次加工・卸売のご相談はこちらから。お見積りは無料、通常2営業日以内にご返信いたします。"
+  breadcrumbs={[{ name: 'HOME', path: '/' }, { name: 'お問い合わせ', path: '/contact/' }]}
+>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb"><a href="/">HOME</a> / CONTACT</div>
+      <h1>お問い<span>合わせ</span></h1>
+      <p>ご相談・お見積りは無料です。まずはお気軽にご連絡くださいませ。<br />通常2営業日以内にご返信いたします。</p>
+    </div>
+  </header>
+
+  <section id="contact">
+    <div class="section-inner">
+      <div class="contact-layout">
+        <div class="contact-info-side">
+          <h3>まずはご相談を</h3>
+          <p class="sub">小さな試作1点から、継続的なお取引まで。どのような内容でもお気軽にお知らせください。</p>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+            </div>
+            <div class="contact-info-text">
+              <div class="label">Email</div>
+              <div class="value"><a href="mailto:oazo.tamura@gmail.com">oazo.tamura@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-info-text">
+              <div class="label">Address</div>
+              <div class="value">〒574-0026<br />大阪府大東市北条<br />４丁目８番４号</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            </div>
+            <div class="contact-info-text">
+              <div class="label">Response</div>
+              <div class="value">2営業日以内にご返信</div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-side">
+          <h3>お問い合わせフォーム</h3>
+          <p class="sub">以下のフォームよりご相談内容をお送りくださいませ。</p>
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="f-name">お名前<span class="req">*</span></label>
+                <input id="f-name" name="name" type="text" required placeholder="山田 太郎" />
+              </div>
+              <div class="form-field">
+                <label for="f-company">会社名</label>
+                <input id="f-company" name="company" type="text" placeholder="株式会社〇〇" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="f-email">メールアドレス<span class="req">*</span></label>
+                <input id="f-email" name="email" type="email" required placeholder="example@mail.com" />
+              </div>
+              <div class="form-field">
+                <label for="f-type">お問い合わせ種別<span class="req">*</span></label>
+                <select id="f-type" name="type" required>
+                  <option value="">選択してください</option>
+                  <option value="試作サンプル縫製">試作サンプル縫製のご相談</option>
+                  <option value="二次加工">二次加工（刺繍・ハンドS/T・製品洗い）のご相談</option>
+                  <option value="アパレル卸売">アパレル卸売のご相談</option>
+                  <option value="継続取引">継続取引のご相談</option>
+                  <option value="その他">その他</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="f-msg">ご相談内容<span class="req">*</span></label>
+              <textarea id="f-msg" name="message" required placeholder="ご依頼の概要・ロット数・ご希望納期・予算感など、わかる範囲でご記入くださいませ。"></textarea>
+            </div>
+            <button type="submit" class="form-submit" id="formSubmit">内容を確認して送信する</button>
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+            <p class="form-note">
+              ※ 送信後に画面内でご報告いたします。うまくいかない場合は <a href="mailto:oazo.tamura@gmail.com">oazo.tamura@gmail.com</a> まで直接ご連絡くださいませ。
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<script is:inline>
+  (function () {
+    const form = document.getElementById('contactForm');
+    const btn = document.getElementById('formSubmit');
+    const status = document.getElementById('formStatus');
+    if (!form || !btn || !status) return;
+
+    const setStatus = (kind, html) => {
+      status.className = 'form-status ' + kind;
+      status.innerHTML = html;
+    };
+
+    const openMailto = (f) => {
+      const subject = encodeURIComponent('【お問い合わせ】' + f.type.value + ' - ' + f.name.value + '様より');
+      const body = encodeURIComponent(
+        '■ お名前: ' + f.name.value + '\n' +
+        '■ 会社名: ' + (f.company.value || '（未記入）') + '\n' +
+        '■ メールアドレス: ' + f.email.value + '\n' +
+        '■ お問い合わせ種別: ' + f.type.value + '\n\n' +
+        '■ ご相談内容:\n' + f.message.value + '\n'
+      );
+      window.location.href = 'mailto:oazo.tamura@gmail.com?subject=' + subject + '&body=' + body;
+    };
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const f = this;
+      btn.disabled = true;
+      const originalLabel = btn.textContent;
+      btn.textContent = '送信中…';
+      setStatus('pending', '送信しております。少々お待ちくださいませ。');
+
+      const payload = {
+        name: f.name.value,
+        company: f.company.value,
+        email: f.email.value,
+        type: f.type.value,
+        message: f.message.value,
+      };
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.ok) {
+          setStatus('success', '<strong>送信が完了いたしました。</strong><br>内容を確認の上、2営業日以内にご返信いたします。');
+          f.reset();
+        } else {
+          const msg = (data && data.error) || '送信に失敗しました。';
+          setStatus('error', '<strong>' + msg + '</strong><br>代わりにメーラーを起動いたします…');
+          setTimeout(() => openMailto(f), 1200);
+        }
+      } catch (err) {
+        setStatus('error', '<strong>通信に失敗しました。</strong><br>代わりにメーラーを起動いたします…');
+        setTimeout(() => openMailto(f), 1200);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = originalLabel;
+      }
+    });
+  })();
+</script>
+
+<style>
+  #contact { background: linear-gradient(135deg, var(--cream) 0%, #f0e5d0 100%); position: relative; overflow: hidden; }
+  #contact::before, #contact::after { content: ''; position: absolute; border-radius: 50%; opacity: 0.08; }
+  #contact::before { width: 500px; height: 500px; background: var(--orange); top: -200px; left: -200px; filter: blur(60px); }
+  #contact::after { width: 400px; height: 400px; background: var(--green); bottom: -150px; right: -150px; filter: blur(50px); }
+  .contact-layout { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 0; background: var(--white); border-radius: 28px; overflow: hidden; box-shadow: var(--shadow-lg); position: relative; z-index: 1; }
+  .contact-info-side { background: linear-gradient(135deg, var(--green-dk), var(--green-xd)); color: white; padding: 48px 36px; position: relative; overflow: hidden; }
+  .contact-info-side::before { content: ''; position: absolute; width: 250px; height: 250px; background: var(--orange); border-radius: 50%; bottom: -100px; right: -80px; opacity: 0.25; }
+  .contact-info-side h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 10px; position: relative; z-index: 1; }
+  .contact-info-side .sub { font-size: 0.82rem; opacity: 0.85; line-height: 1.85; margin-bottom: 36px; position: relative; z-index: 1; }
+  .contact-info-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 24px; position: relative; z-index: 1; }
+  .contact-info-icon { width: 36px; height: 36px; background: rgba(255,255,255,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .contact-info-icon svg { width: 16px; height: 16px; color: white; }
+  .contact-info-text .label { font-size: 0.68rem; font-weight: 700; opacity: 0.7; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; }
+  .contact-info-text .value { font-size: 0.88rem; font-weight: 500; line-height: 1.7; }
+  .contact-info-text a { color: white; text-decoration: none; }
+  .contact-info-text a:hover { text-decoration: underline; }
+
+  .contact-form-side { padding: 48px 40px; }
+  .contact-form-side h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 6px; }
+  .contact-form-side > .sub { font-size: 0.82rem; color: var(--text-lt); margin-bottom: 28px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .form-field { margin-bottom: 14px; }
+  .form-field label { display: block; font-size: 0.76rem; font-weight: 700; color: var(--text); margin-bottom: 6px; letter-spacing: 0.02em; }
+  .form-field label .req { color: var(--orange); font-size: 0.7rem; margin-left: 4px; }
+  .form-field input, .form-field select, .form-field textarea { width: 100%; padding: 12px 14px; font-size: 0.88rem; font-family: inherit; border: 1.5px solid var(--border); border-radius: 10px; background: var(--cream); color: var(--text); transition: border-color 0.2s, background 0.2s; }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--green-dk); background: var(--white); }
+  .form-field textarea { resize: vertical; min-height: 120px; }
+  .form-submit { width: 100%; background: var(--orange); color: white; padding: 15px; border-radius: 30px; font-size: 0.92rem; font-weight: 800; letter-spacing: 0.05em; transition: background 0.2s, transform 0.2s; box-shadow: 0 4px 16px rgba(244,123,90,0.35); margin-top: 8px; }
+  .form-submit:hover { background: var(--orange-dk); transform: translateY(-1px); }
+  .form-submit:disabled { opacity: 0.55; cursor: wait; transform: none; }
+  .form-status {
+    margin-top: 16px;
+    padding: 0;
+    font-size: 0.82rem;
+    line-height: 1.75;
+    border-radius: 10px;
+    transition: background 0.2s, padding 0.2s;
+  }
+  .form-status:empty { display: none; }
+  .form-status.pending { padding: 12px 16px; background: rgba(125,196,122,0.1); color: var(--green-xd); }
+  .form-status.success { padding: 14px 18px; background: rgba(125,196,122,0.18); color: var(--green-xd); border-left: 3px solid var(--green-dk); }
+  .form-status.error   { padding: 14px 18px; background: rgba(244,123,90,0.12); color: var(--orange-dk); border-left: 3px solid var(--orange-dk); }
+  .form-note { font-size: 0.72rem; color: var(--text-lt); margin-top: 14px; text-align: center; line-height: 1.7; }
+  .form-note a { color: var(--green-dk); font-weight: 700; }
+
+  @media (max-width: 960px) {
+    .contact-layout { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .form-row { grid-template-columns: 1fr; }
+    .contact-info-side, .contact-form-side { padding: 36px 26px; }
+  }
+</style>

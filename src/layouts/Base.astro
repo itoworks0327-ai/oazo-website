@@ -1,0 +1,115 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const {
+  title       = 'oazo合同会社',
+  description = 'oazo合同会社は大阪・大東市を拠点に、アパレル業界の試作サンプル縫製・二次加工（刺繍・ハンドステッチ・製品洗い）・卸売を手がける総合パートナーです。',
+  current     = '',
+  ogImage     = '/og-image.png',
+  breadcrumbs = null,
+  jsonLd      = null,
+} = Astro.props;
+
+const fullTitle = title === 'oazo合同会社'
+  ? 'oazo合同会社 | アパレルサンプル縫製・二次加工・卸売 | 大阪'
+  : `${title} | oazo合同会社`;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'oazo合同会社',
+  alternateName: 'oazo LLC',
+  url: 'https://oazo-oazo.com',
+  logo: new URL('/og-image.png', Astro.site).toString(),
+  email: 'oazo.tamura@gmail.com',
+  foundingDate: '2020-12',
+  founder: { '@type': 'Person', name: '田村 英次' },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '北条4-8-4',
+    addressLocality: '大東市',
+    addressRegion: '大阪府',
+    postalCode: '574-0026',
+    addressCountry: 'JP',
+  },
+  areaServed: { '@type': 'Country', name: '日本' },
+  knowsAbout: [
+    'アパレル試作サンプル縫製',
+    '刺繍',
+    'ハンドステッチ',
+    '製品洗い',
+    'アパレル卸売',
+    'ファッション二次加工',
+  ],
+  makesOffer: [
+    { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '試作サンプル縫製', description: '1点からの少量試作に対応。パターン・仕様書からの精密縫製。' } },
+    { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '二次加工', description: '刺繍・ハンドステッチ・製品洗いによる付加価値加工。' } },
+    { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'アパレル卸売', description: '小売店・EC事業者様向け。柔軟なロット対応。' } },
+  ],
+  description,
+};
+
+const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((bc, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: bc.name,
+    item: new URL(bc.path, Astro.site).toString(),
+  })),
+} : null;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content="アパレル, サンプル縫製, 試作, 二次加工, 刺繍, 製品洗い, 卸売, 大阪, OEM, 少ロット" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="author" content="oazo合同会社" />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="oazo合同会社" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:image" content={new URL(ogImage, Astro.site).toString()} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#4a9e5c" />
+
+  <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+  {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
+  {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <a href="#main" class="skip-link">メインコンテンツへスキップ</a>
+  <Nav current={current} />
+  <main id="main" tabindex="-1">
+    <slot />
+  </main>
+  <Footer />
+
+  <script is:inline>
+    (function () {
+      const skipLink = document.querySelector('.skip-link');
+      const main = document.getElementById('main');
+      if (!skipLink || !main) return;
+      skipLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        main.focus({ preventScroll: true });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>

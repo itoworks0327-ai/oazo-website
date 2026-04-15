@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const faqs = [
+  { q: '最小ロットはいくつから対応していただけますか？', a: '試作サンプルは<strong>1点から</strong>対応しております。本生産のロット数はご相談に応じて柔軟に設定いたしますので、スタートアップブランド様も安心してご依頼ください。' },
+  { q: '納期はどれくらいを見込めばよいでしょうか？', a: '内容・分量・加工種別により異なりますが、サンプル縫製は<strong>1〜2週間</strong>、二次加工は<strong>1週間前後</strong>が目安です。お急ぎの場合はご相談くださいませ。可能な限り調整いたします。' },
+  { q: 'サンプル縫製のみの依頼は可能ですか？', a: 'もちろん可能です。本生産を他社に依頼される場合でも、<strong>サンプル制作のみ</strong>のご依頼を承っております。パターン・仕様書をいただければ精密に再現いたします。' },
+  { q: 'デザインや仕様の秘密保持は大丈夫ですか？', a: '試作段階のデザイン・パターン・仕様情報は<strong>厳格に管理</strong>しております。必要に応じて秘密保持契約（NDA）の締結にも対応いたしますので、お申し付けください。' },
+  { q: '大阪以外からの依頼にも対応していますか？', a: 'はい、<strong>全国からご依頼</strong>を承っております。パターン・仕様書のやりとりはメール等で進められますので、地理的な制約はございません。納品は宅配便で対応可能です。' },
+  { q: 'お見積りは無料でしょうか？', a: 'はい、<strong>お見積りは無料</strong>でございます。ご相談内容を詳しくお伺いした上で、お見積書をご提示いたします。まずはお気軽にお問い合わせくださいませ。' },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(item => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a.replace(/<[^>]+>/g, ''),
+    },
+  })),
+};
+---
+
+<Base
+  current="faq"
+  title="よくあるご質問"
+  description="oazo合同会社へよくいただくご質問とその回答。最小ロット・納期・秘密保持・お見積もりなど、お問い合わせ前にご確認いただけます。"
+  breadcrumbs={[{ name: 'HOME', path: '/' }, { name: 'よくあるご質問', path: '/faq/' }]}
+  jsonLd={faqSchema}
+>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb"><a href="/">HOME</a> / FAQ</div>
+      <h1>よくある<span>ご質問</span></h1>
+      <p>お問い合わせ前によくいただくご質問をまとめました。こちらにない内容は、お気軽にご連絡くださいませ。</p>
+    </div>
+  </header>
+
+  <section id="faq">
+    <div class="section-inner">
+      <div class="faq-list">
+        {faqs.map(item => (
+          <details class="faq-item">
+            <summary>
+              <span class="faq-q-mark">Q</span>
+              <span class="faq-q-text">{item.q}</span>
+              <span class="faq-toggle"></span>
+            </summary>
+            <div class="faq-answer" set:html={item.a} />
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand title="ご不明な点はお気軽に" text="こちらにない質問・もう少し詳しく知りたい点がございましたら、お問い合わせフォームよりお寄せください。" />
+
+</Base>
+
+<style>
+  #faq { background: var(--white); }
+  .faq-list { max-width: 800px; margin: 0 auto; }
+  .faq-item { border: 1px solid var(--border); border-radius: 16px; margin-bottom: 14px; overflow: hidden; transition: box-shadow 0.2s; }
+  .faq-item[open] { box-shadow: var(--shadow); border-color: var(--green-lt); }
+  .faq-item summary { padding: 20px 24px; cursor: pointer; font-size: 0.92rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 14px; list-style: none; transition: background 0.2s; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary:hover { background: rgba(125,196,122,0.05); }
+  .faq-q-mark { width: 28px; height: 28px; background: var(--orange); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Nunito'; font-weight: 900; font-size: 0.85rem; flex-shrink: 0; }
+  .faq-q-text { flex: 1; }
+  .faq-toggle { width: 20px; height: 20px; flex-shrink: 0; position: relative; transition: transform 0.3s; }
+  .faq-toggle::before, .faq-toggle::after { content: ''; position: absolute; background: var(--green-dk); left: 50%; top: 50%; }
+  .faq-toggle::before { width: 14px; height: 2px; transform: translate(-50%, -50%); }
+  .faq-toggle::after { width: 2px; height: 14px; transform: translate(-50%, -50%); transition: opacity 0.3s; }
+  .faq-item[open] .faq-toggle::after { opacity: 0; }
+  .faq-answer { padding: 4px 24px 24px 66px; font-size: 0.85rem; color: var(--text-lt); line-height: 1.95; }
+
+  @media (max-width: 768px) {
+    .faq-answer { padding-left: 24px; }
+  }
+</style>

@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBand from '../components/CtaBand.astro';
+---
+
+<Base
+  current="process"
+  title="ご依頼の流れ"
+  description="oazo合同会社へのご依頼の流れ。お問い合わせから納品まで、シンプルな5ステップでご案内いたします。"
+  breadcrumbs={[{ name: 'HOME', path: '/' }, { name: 'ご依頼の流れ', path: '/process/' }]}
+>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb"><a href="/">HOME</a> / PROCESS</div>
+      <h1>ご依頼の<span>流れ</span></h1>
+      <p>初めてのお取引でも安心してご利用いただけるよう、シンプルな5ステップでご案内いたします。</p>
+    </div>
+  </header>
+
+  <section id="process">
+    <div class="section-inner">
+      <div class="process-flow">
+        <div class="process-step">
+          <div class="process-circle">01</div>
+          <h4>お問い合わせ</h4>
+          <p>まずはフォームよりご相談内容をお送りください。お気軽にどうぞ。</p>
+        </div>
+        <div class="process-step">
+          <div class="process-circle">02</div>
+          <h4>ヒアリング</h4>
+          <p>詳細をうかがい、お見積りをご提示します。ご予算もお気兼ねなく。</p>
+        </div>
+        <div class="process-step">
+          <div class="process-circle">03</div>
+          <h4>試作・確認</h4>
+          <p>サンプル制作後、仕上がりをご確認いただきます。修正対応も可能です。</p>
+        </div>
+        <div class="process-step">
+          <div class="process-circle">04</div>
+          <h4>本制作</h4>
+          <p>ご承認を経て本生産・加工に入ります。進捗もご報告いたします。</p>
+        </div>
+        <div class="process-step">
+          <div class="process-circle">05</div>
+          <h4>納品</h4>
+          <p>ご指定の納期・場所に確実にお届けします。検品も丁寧に。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand title="まずは Step 01 から" text="お問い合わせフォームよりご相談内容をお送りくださいませ。" />
+
+</Base>
+
+<style>
+  #process { background: linear-gradient(180deg, var(--cream) 0%, #f8efe1 100%); }
+  .process-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; position: relative; }
+  .process-flow::before { content: ''; position: absolute; top: 32px; left: 10%; right: 10%; height: 2px; background: repeating-linear-gradient(to right, var(--green-dk) 0, var(--green-dk) 6px, transparent 6px, transparent 12px); z-index: 0; }
+  .process-step { text-align: center; position: relative; z-index: 1; }
+  .process-circle { width: 64px; height: 64px; margin: 0 auto 16px; background: var(--white); border: 2px solid var(--green-dk); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Nunito', sans-serif; font-size: 1.3rem; font-weight: 900; color: var(--green-dk); box-shadow: 0 4px 16px rgba(74,158,92,0.15); }
+  .process-step h4 { font-size: 0.95rem; font-weight: 800; margin-bottom: 6px; color: var(--text); }
+  .process-step p { font-size: 0.78rem; color: var(--text-lt); line-height: 1.75; }
+
+  @media (max-width: 960px) {
+    .process-flow { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .process-flow::before { display: none; }
+  }
+</style>

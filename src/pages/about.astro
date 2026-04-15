@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBand from '../components/CtaBand.astro';
+---
+
+<Base
+  current="about"
+  title="会社概要"
+  description="oazo合同会社の会社情報・代表メッセージ・事業内容をご紹介。大阪・大東市を拠点に、アパレル業界を支える総合パートナーとして活動しております。"
+  breadcrumbs={[{ name: 'HOME', path: '/' }, { name: '会社概要', path: '/about/' }]}
+>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb"><a href="/">HOME</a> / ABOUT</div>
+      <h1>会社<span>概要</span></h1>
+      <p>大阪・大東市を拠点に、アパレル業界を支える総合パートナーとして活動しております。</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-visual-wrap">
+          <div class="about-visual">
+            <svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 60 Q50 40 80 60 T140 60 T200 60" stroke="white" stroke-width="2" stroke-dasharray="6 6" opacity="0.6" fill="none"/>
+              <path d="M0 100 Q30 80 60 100 T120 100 T180 100" stroke="white" stroke-width="2" stroke-dasharray="6 6" opacity="0.5" fill="none"/>
+              <path d="M20 140 Q50 120 80 140 T140 140 T200 140" stroke="white" stroke-width="2" stroke-dasharray="6 6" opacity="0.4" fill="none"/>
+              <g transform="translate(65 85) rotate(-25)">
+                <rect x="0" y="0" width="70" height="3" rx="1.5" fill="white" opacity="0.95"/>
+                <circle cx="4" cy="1.5" r="2" fill="none" stroke="white" stroke-width="1.5"/>
+                <polygon points="70,0 76,1.5 70,3" fill="white"/>
+              </g>
+              <ellipse cx="100" cy="180" rx="55" ry="12" stroke="white" stroke-width="2" fill="none" opacity="0.7"/>
+              <ellipse cx="100" cy="195" rx="40" ry="8" stroke="white" stroke-width="1.5" fill="none" opacity="0.5"/>
+              <text x="100" y="225" text-anchor="middle" font-family="Nunito, sans-serif" font-size="28" font-weight="900" fill="rgba(244,123,90,0.7)" letter-spacing="-0.02em">oazo</text>
+            </svg>
+          </div>
+          <div class="about-badge about-badge-1">
+            <div class="about-badge-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f47b5a" stroke-width="2.5"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+            </div>
+            品質第一
+          </div>
+          <div class="about-badge about-badge-2">
+            <div class="about-badge-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4a9e5c" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            </div>
+            短納期対応
+          </div>
+        </div>
+        <div>
+          <div class="section-tag">Representative Message</div>
+          <h2 class="section-title">代表からのご挨拶</h2>
+          <div class="about-message">
+            少量のサンプルから本格的な二次加工まで、規模を問わずアパレルブランドの「作りたい」に寄り添うことが私たちの役割です。経験に裏打ちされた確かな技術と、柔軟な対応力を武器に、ものづくりの現場を支え続けます。
+          </div>
+          <table class="about-table">
+            <tr><td>会社名<span class="td-en">Company Name</span></td><td>oazo合同会社<span class="td-en">oazo LLC</span></td></tr>
+            <tr><td>代表<span class="td-en">Representative</span></td><td>田村 英次<span class="td-en">Eiji Tamura</span></td></tr>
+            <tr><td>設立<span class="td-en">Founded</span></td><td>2020年12月<span class="td-en">December 2020</span></td></tr>
+            <tr><td>所在地<span class="td-en">Location</span></td><td>〒574-0026<br />大阪府大東市北条４丁目８番４号<span class="td-en">Houjou 4-8-4, Daito, Osaka, Japan</span></td></tr>
+            <tr><td>事業内容<span class="td-en">Business</span></td><td>アパレル卸売業／試作サンプル縫製／二次加工（刺繍・ハンドS/T・製品洗い 等）<span class="td-en">Apparel Wholesale / Sample Sewing / Secondary Processing</span></td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand title="ものづくりのご相談はお気軽に" text="少ロットから本格的な加工まで、まずはお気軽にお問い合わせくださいませ。" />
+
+</Base>
+
+<style>
+  #about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: center; }
+  .about-visual-wrap { position: relative; }
+  .about-visual {
+    background: linear-gradient(135deg, var(--green-lt) 0%, var(--green) 60%, var(--green-dk) 100%);
+    border-radius: 28px 60px 28px 60px;
+    aspect-ratio: 4/5;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(74,158,92,0.25);
+  }
+  .about-visual svg { width: 80%; height: 80%; color: rgba(255,255,255,0.9); }
+  .about-badge { position: absolute; background: var(--white); padding: 14px 20px; border-radius: 16px; box-shadow: var(--shadow-lg); font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+  .about-badge-1 { top: -12px; right: -16px; color: var(--orange-dk); }
+  .about-badge-2 { bottom: 24px; left: -20px; color: var(--green-dk); }
+  .about-badge-icon { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--cream), var(--cream-dk)); }
+
+  .about-message { background: rgba(125,196,122,0.08); border-left: 3px solid var(--green-dk); padding: 20px 24px; border-radius: 0 12px 12px 0; margin: 24px 0 28px; font-size: 0.9rem; line-height: 1.95; color: var(--text); }
+  .about-message::before { content: '"'; font-size: 2.6rem; font-family: 'Nunito'; color: var(--green-dk); float: left; line-height: 0.8; margin-right: 8px; opacity: 0.4; }
+
+  .about-table { width: 100%; border-collapse: collapse; }
+  .about-table tr { border-bottom: 1px solid var(--border); }
+  .about-table tr:first-child { border-top: 1px solid var(--border); }
+  .about-table td { padding: 14px 8px; font-size: 0.86rem; vertical-align: top; }
+  .about-table td:first-child { color: var(--green-dk); font-weight: 700; width: 38%; font-size: 0.78rem; }
+  .about-table .td-en { display: block; font-size: 0.68rem; color: var(--text-lt); font-weight: 500; margin-top: 2px; }
+
+  @media (max-width: 960px) {
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+</style>

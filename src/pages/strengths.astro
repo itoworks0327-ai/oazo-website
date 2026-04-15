@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBand from '../components/CtaBand.astro';
+---
+
+<Base
+  current="strengths"
+  title="選ばれる理由"
+  description="oazo合同会社が選ばれる4つの理由。スピード対応・少ロット対応・確かな品質・秘密厳守。大手にはない柔軟さと、個人工房にはない確かな対応力でお応えします。"
+  breadcrumbs={[{ name: 'HOME', path: '/' }, { name: '選ばれる理由', path: '/strengths/' }]}
+>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb"><a href="/">HOME</a> / WHY OAZO</div>
+      <h1>選ばれる<span>理由</span></h1>
+      <p>大手工場にはない柔軟さと、個人工房にはない確かな対応力。oazoは「ちょうどいい規模のパートナー」であり続けます。</p>
+    </div>
+  </header>
+
+  <section id="strengths">
+    <div class="section-inner">
+      <div class="strengths-grid">
+        <div class="strength-item">
+          <div class="strength-num">01</div>
+          <div class="strength-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div>
+          <h4>スピード対応</h4>
+          <p>サンプル制作・修正のお願いに、最短即日でご返答。お急ぎの案件にも柔軟に対応いたします。</p>
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">02</div>
+          <div class="strength-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9M4 7h4M20 12h-4M4 12h9M20 17h-9M4 17h4"/><circle cx="9" cy="7" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="9" cy="17" r="2"/></svg></div>
+          <h4>少ロット対応</h4>
+          <p>1点のサンプルから本番ロットまで、規模を問わずお受けいたします。スタートアップブランドも歓迎です。</p>
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">03</div>
+          <div class="strength-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+          <h4>確かな品質</h4>
+          <p>縫製・加工の一つひとつを丁寧に。業界で培った技術と経験が、仕上がりの差となって表れます。</p>
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">04</div>
+          <div class="strength-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          <h4>秘密厳守</h4>
+          <p>試作段階のデザイン・仕様情報は厳格に管理。ブランドの機密を守ることをお約束いたします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+
+</Base>
+
+<style>
+  #strengths { background: var(--white); }
+  .strengths-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .strength-item { text-align: center; padding: 28px 20px; }
+  .strength-num { font-family: 'Nunito', sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--orange); letter-spacing: 0.2em; margin-bottom: 12px; }
+  .strength-icon { width: 72px; height: 72px; margin: 0 auto 20px; background: linear-gradient(135deg, var(--green-lt), var(--green)); border-radius: 22px; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 8px 24px rgba(125,196,122,0.35); }
+  .strength-icon svg { width: 34px; height: 34px; }
+  .strength-item h4 { font-size: 1rem; font-weight: 800; margin-bottom: 10px; color: var(--text); }
+  .strength-item p { font-size: 0.82rem; color: var(--text-lt); line-height: 1.9; }
+
+  @media (max-width: 960px) {
+    .strengths-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  }
+</style>

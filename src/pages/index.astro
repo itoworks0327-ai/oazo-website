@@ -1,0 +1,149 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBand from '../components/CtaBand.astro';
+---
+
+<Base current="" title="oazo合同会社">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-blob-1"></div>
+      <div class="hero-blob-2"></div>
+      <div class="hero-blob-3"></div>
+      <svg class="hero-thread" viewBox="0 0 1200 800" preserveAspectRatio="none" fill="none">
+        <path d="M0,400 Q300,200 600,400 T1200,400" stroke="#4a9e5c" stroke-width="1" stroke-dasharray="4 6" />
+        <path d="M0,500 Q300,700 600,500 T1200,500" stroke="#f47b5a" stroke-width="1" stroke-dasharray="4 6" />
+      </svg>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">大阪・大東市から、アパレルの「作りたい」を形に</div>
+      <div class="hero-logo">oazo</div>
+      <p class="hero-tagline-ja">ファッションで未来に継ぐ。</p>
+      <p class="hero-tagline-en">Carrying the future forward through fashion.</p>
+      <p class="hero-lead">試作サンプル縫製・二次加工・卸売まで。<br />アパレル業界を支える総合パートナーとして、<br />少ロット・短納期・柔軟な対応でお応えします。</p>
+      <div class="hero-btns">
+        <a href="/contact/" class="btn-primary">
+          無料でご相談する
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/services/" class="btn-secondary">事業内容を見る</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">2020</div><div class="hero-stat-label">創業</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">1<span class="hero-stat-unit">点</span></div><div class="hero-stat-label">最小ロット</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">全国</div><div class="hero-stat-label">対応エリア</div></div>
+    </div>
+  </section>
+
+  <!-- 簡略3カラム：各ページへの誘導 -->
+  <section id="quick-nav">
+    <div class="section-inner">
+      <div class="section-head">
+        <div class="section-tag">Overview</div>
+        <h2 class="section-title">oazoの<span>三本柱</span></h2>
+        <p class="section-sub">アパレルブランドの「作りたい」を、三つの専門領域でしっかりと支えます。</p>
+      </div>
+      <div class="quick-grid">
+        <a href="/services/#sample" class="quick-card">
+          <div class="quick-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M8 4h8M10 6h4v3h-4zM12 9v11M10 20h4"/></svg>
+          </div>
+          <h3>試作サンプル縫製</h3>
+          <p>1点からの試作対応。デザインを素早く形にいたします。</p>
+          <span class="quick-link">詳しく見る →</span>
+        </a>
+        <a href="/services/#processing" class="quick-card">
+          <div class="quick-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M7 12c2-3 3-3 5 0s3 3 5 0"/></svg>
+          </div>
+          <h3>二次加工</h3>
+          <p>刺繍・ハンドS/T・製品洗いで、世界観を一歩引き上げます。</p>
+          <span class="quick-link">詳しく見る →</span>
+        </a>
+        <a href="/services/#wholesale" class="quick-card">
+          <div class="quick-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3l-5 3v5h3v10h12V11h3V6l-5-3"/><path d="M8 3l4 3 4-3"/></svg>
+          </div>
+          <h3>アパレル卸売</h3>
+          <p>小売店・EC事業者様向け。柔軟なロットで対応。</p>
+          <span class="quick-link">詳しく見る →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+
+</Base>
+
+<style>
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+  .hero-blob-1 { position: absolute; width: 560px; height: 560px; background: linear-gradient(135deg, var(--green-lt), var(--green)); top: 48%; left: 50%; transform: translate(-50%, -50%); border-radius: 62% 38% 55% 45% / 45% 58% 42% 55%; opacity: 0.9; }
+  .hero-blob-2 { position: absolute; width: 90px; height: 90px; background: var(--orange-lt); top: 18%; left: 16%; border-radius: 50% 60% 40% 70% / 50% 40% 60% 50%; opacity: 0.4; }
+  .hero-blob-3 { position: absolute; width: 60px; height: 60px; background: var(--green-lt); top: 26%; right: 14%; border-radius: 60% 40% 55% 45% / 45% 58% 42% 55%; opacity: 0.5; }
+  .hero-thread { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.15; pointer-events: none; }
+
+  .hero-content { position: relative; z-index: 2; max-width: 800px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); color: var(--green-dk); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; padding: 6px 16px; border-radius: 20px; margin-bottom: 24px; box-shadow: var(--shadow-sm); }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.3); } }
+  .hero-logo { font-family: 'Nunito', sans-serif; font-size: clamp(5rem, 13vw, 10rem); font-weight: 900; color: var(--orange); line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 20px; text-shadow: 0 3px 14px rgba(244,123,90,0.15); }
+  .hero-tagline-ja { font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 700; color: var(--green-xd); letter-spacing: 0.12em; margin-bottom: 6px; }
+  .hero-tagline-en { font-family: 'Nunito', sans-serif; font-size: clamp(0.8rem, 1.8vw, 1rem); font-weight: 600; color: var(--green-dk); opacity: 0.85; letter-spacing: 0.05em; margin-bottom: 24px; }
+  .hero-lead { font-size: clamp(0.85rem, 1.6vw, 0.95rem); color: var(--text); max-width: 520px; margin: 0 auto 36px; line-height: 1.9; }
+  .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  .hero-stats { margin-top: 64px; display: flex; gap: 48px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 2; }
+  .hero-stat { text-align: center; }
+  .hero-stat-num { font-family: 'Nunito', sans-serif; font-size: 2rem; font-weight: 900; color: var(--orange); line-height: 1; }
+  .hero-stat-unit { font-family: 'Noto Sans JP', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--orange-dk); margin-left: 1px; }
+  .hero-stat-label { font-size: 0.72rem; font-weight: 700; color: var(--green-xd); letter-spacing: 0.08em; margin-top: 4px; }
+
+  #quick-nav { background: var(--white); }
+  .quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .quick-card {
+    background: var(--cream);
+    border-radius: 24px;
+    padding: 36px 28px;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+  }
+  .quick-card:hover { transform: translateY(-6px); border-color: var(--green-lt); box-shadow: var(--shadow-lg); }
+  .quick-card:hover .quick-icon { box-shadow: 0 8px 22px rgba(74,158,92,0.35), 0 0 0 3px rgba(244,123,90,0.25); }
+  .quick-icon {
+    width: 64px; height: 64px;
+    border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, var(--green-lt), var(--green-dk));
+    box-shadow: 0 6px 18px rgba(74,158,92,0.25);
+    transition: box-shadow 0.3s;
+  }
+  .quick-icon svg { width: 30px; height: 30px; }
+  .quick-card h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 8px; }
+  .quick-card p { font-size: 0.82rem; color: var(--text-lt); line-height: 1.85; margin-bottom: 16px; }
+  .quick-link { font-size: 0.78rem; font-weight: 700; color: var(--green-dk); }
+
+  @media (max-width: 768px) {
+    #hero { padding: 100px 20px 60px; min-height: auto; }
+    .hero-stats { gap: 28px; margin-top: 40px; }
+    .hero-stat-num { font-size: 1.6rem; }
+    .quick-grid { grid-template-columns: 1fr; }
+  }
+</style>
