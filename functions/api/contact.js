@@ -4,7 +4,7 @@
  * 環境変数（Cloudflare Dashboard で設定）:
  *   RESEND_API_KEY  - Resend (https://resend.com) の API キー
  *   CONTACT_FROM    - 送信元メールアドレス（Resend で検証済みドメイン）
- *                     例: "oazo contact <noreply@oazo-oazo.com>"
+ *                     例: "oazo contact <noreply@oazo-apparel.com>"
  *                     未設定なら Resend の onboarding@resend.dev を使用（要検証域のみ送信可）
  *   CONTACT_TO      - 受信メールアドレス（未設定なら oazo.tamura@gmail.com）
  */
@@ -60,11 +60,11 @@ export async function onRequestPost({ request, env }) {
     `■ お問い合わせ種別: ${type}\n\n` +
     `■ ご相談内容:\n${message}\n\n` +
     `--\n` +
-    `このメールは oazo-oazo.com のお問い合わせフォームから送信されました。`;
+    `このメールは oazo-apparel.com のお問い合わせフォームから送信されました。`;
 
   const html =
     `<div style="font-family:sans-serif;line-height:1.8">` +
-    `<h2 style="color:#4a9e5c">oazo-oazo.com お問い合わせ</h2>` +
+    `<h2 style="color:#4a9e5c">oazo-apparel.com お問い合わせ</h2>` +
     `<table style="border-collapse:collapse">` +
     `<tr><td><b>お名前</b></td><td>${escapeHtml(name)}</td></tr>` +
     `<tr><td><b>会社名</b></td><td>${escapeHtml(company || '（未記入）')}</td></tr>` +
