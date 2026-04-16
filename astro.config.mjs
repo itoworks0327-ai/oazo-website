@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://oazo-oazo.com',
+  site: 'https://oazo-apparel.com',
   integrations: [
     sitemap({
       changefreq: 'monthly',
