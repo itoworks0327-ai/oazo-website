@@ -69,6 +69,15 @@ const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3CLEYH97DJ"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3CLEYH97DJ');
+  </script>
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
   <meta name="keywords" content="アパレル, サンプル縫製, 試作, 二次加工, 刺繍, 製品洗い, 卸売, 大阪, OEM, 少ロット" />
