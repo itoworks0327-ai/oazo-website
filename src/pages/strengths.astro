@@ -26,24 +26,28 @@ import CtaBand from '../components/CtaBand.astro';
           <div class="strength-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div>
           <h4>スピード対応</h4>
           <p>サンプル制作・修正のお願いに、最短即日でご返答。お急ぎの案件にも柔軟に対応いたします。</p>
+          <div class="strength-episode">家内工業だからこそ、工期が迫った案件でも土日祝日で縫製対応が可能。「普通の人が休んでるときにやってくれてる。会社は休みでもプロジェクトはずっと進んでる」——そう評価いただける体制です。</div>
         </div>
         <div class="strength-item">
           <div class="strength-num">02</div>
           <div class="strength-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9M4 7h4M20 12h-4M4 12h9M20 17h-9M4 17h4"/><circle cx="9" cy="7" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="9" cy="17" r="2"/></svg></div>
           <h4>少ロット対応</h4>
           <p>1点のサンプルから本番ロットまで、規模を問わずお受けいたします。スタートアップブランドも歓迎です。</p>
+          <div class="strength-episode">他社工場で「難しい柄の裁断ができない」と断られた特異な生地・指示の案件を、oazoは「対応できる」と判断してお受けした実績がございます。</div>
         </div>
         <div class="strength-item">
           <div class="strength-num">03</div>
           <div class="strength-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
           <h4>確かな品質</h4>
           <p>縫製・加工の一つひとつを丁寧に。業界で培った技術と経験が、仕上がりの差となって表れます。</p>
+          <div class="strength-episode">「品質は比べる人がいる。比べる中でそれ以上を超えてきた」——その積み重ねが期待と信用になり、今日まで続くお取引の礎となっております。</div>
         </div>
         <div class="strength-item">
           <div class="strength-num">04</div>
           <div class="strength-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
           <h4>秘密厳守</h4>
           <p>試作段階のデザイン・仕様情報は厳格に管理。ブランドの機密を守ることをお約束いたします。</p>
+          <div class="strength-episode">まだ市場に出ていない新作を扱うため、生地のプリントもすべて外部に出しません。サンプルも生地も全数返却。「情報にはそれくらい敏感」——それがoazoの姿勢です。</div>
         </div>
       </div>
     </div>
@@ -62,6 +66,7 @@ import CtaBand from '../components/CtaBand.astro';
   .strength-icon svg { width: 34px; height: 34px; }
   .strength-item h4 { font-size: 1rem; font-weight: 800; margin-bottom: 10px; color: var(--text); }
   .strength-item p { font-size: 0.82rem; color: var(--text-lt); line-height: 1.9; }
+  .strength-episode { margin-top: 14px; padding: 14px 16px; background: rgba(125,196,122,0.06); border-radius: 10px; font-size: 0.78rem; color: var(--text); line-height: 1.85; text-align: left; border-left: 2px solid var(--green-lt); }
 
   @media (max-width: 960px) {
     .strengths-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }

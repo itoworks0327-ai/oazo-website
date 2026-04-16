@@ -54,7 +54,9 @@ import CtaBand from '../components/CtaBand.astro';
           <div class="section-tag">Representative Message</div>
           <h2 class="section-title">代表からのご挨拶</h2>
           <div class="about-message">
-            少量のサンプルから本格的な二次加工まで、規模を問わずアパレルブランドの「作りたい」に寄り添うことが私たちの役割です。経験に裏打ちされた確かな技術と、柔軟な対応力を武器に、ものづくりの現場を支え続けます。
+            <p>高校3年の時、友人と一緒にカバンや財布を生地から手作りし、リサイクル品をリメイクして古着屋に卸す——それが私の原点です。「得意だから」ではなく、ただ「やってみたい」という興味と好奇心だけで、ものづくりの世界に飛び込みました。</p>
+            <p>以来、縫製工場で技術を磨きながら「いつか自分たちの手で仕事を完結させたい」という夢を温め続け、2020年、そのタイミングが来た時に一念発起してoazoを立ち上げました。</p>
+            <p>大きなビルを建てたいわけではありません。信用をひとつずつ積み上げ、洋服を作りたいと志す若い人たちにとっての模範であり、先駆者でありたい。仲間と力を合わせ、他社貢献・社会貢献ができる生き方を通じて、アパレル業界を支え続けること——それが私たちの信念です。</p>
           </div>
           <table class="about-table">
             <tr><td>会社名<span class="td-en">Company Name</span></td><td>oazo合同会社<span class="td-en">oazo LLC</span></td></tr>
@@ -91,6 +93,8 @@ import CtaBand from '../components/CtaBand.astro';
   .about-badge-icon { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--cream), var(--cream-dk)); }
 
   .about-message { background: rgba(125,196,122,0.08); border-left: 3px solid var(--green-dk); padding: 20px 24px; border-radius: 0 12px 12px 0; margin: 24px 0 28px; font-size: 0.9rem; line-height: 1.95; color: var(--text); }
+  .about-message p { margin: 0 0 14px; }
+  .about-message p:last-child { margin-bottom: 0; }
   .about-message::before { content: '"'; font-size: 2.6rem; font-family: 'Nunito'; color: var(--green-dk); float: left; line-height: 0.8; margin-right: 8px; opacity: 0.4; }
 
   .about-table { width: 100%; border-collapse: collapse; }
