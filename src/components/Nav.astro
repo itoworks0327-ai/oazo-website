@@ -11,7 +11,7 @@ const items = [
 
 <nav id="nav" aria-label="グローバルナビゲーション">
   <a class="nav-brand" href="/" aria-label="oazo合同会社トップへ">
-    <span class="nav-brand-mark" aria-hidden="true">oz</span>
+    <img class="nav-brand-mark" src="/favicon.svg" alt="" width="28" height="28" aria-hidden="true" />
     oazo <span>合同会社</span>
   </a>
   <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="navLinks">
@@ -55,12 +55,8 @@ const items = [
   }
   .nav-brand-mark {
     width: 28px; height: 28px;
-    background: linear-gradient(135deg, var(--green-dk), var(--orange));
-    border-radius: 8px 12px 8px 12px / 12px 8px 12px 8px;
-    display: flex; align-items: center; justify-content: center;
-    color: white;
-    font-size: 0.78rem;
-    font-weight: 900;
+    border-radius: 6px;
+    flex-shrink: 0;
   }
   .nav-brand span { color: var(--orange); font-weight: 700; font-size: 0.85rem; margin-left: 2px; }
 

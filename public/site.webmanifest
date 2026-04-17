@@ -1,0 +1,19 @@
+{
+  "name": "oazo合同会社",
+  "short_name": "oazo",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#4a9e5c",
+  "background_color": "#fdf6ee",
+  "display": "standalone"
+}
